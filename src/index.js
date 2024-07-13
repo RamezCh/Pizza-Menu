@@ -33,7 +33,7 @@ function Manqoosha(props) {
     </div>
   );
 }
-
+// Statements aren't allowed in JSX, only expressions
 function Header() {
   // {} for JS mode, {} for object
   // attribute: 'value'
@@ -45,10 +45,25 @@ function Header() {
 }
 
 function Menu() {
+  // Anything can be passed into Props
+  // They are like function parameters
+  // Props are read-only (immutable)
+  // Props are used to pass data from parent to child (One-way data flow )
+  // to mutate props use state
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <Manqoosha />
+      <div className="manqoosha-list">
+        {manakeeshData.map(manqoosha => (
+          <Manqoosha
+            className="manqoosha"
+            name={manqoosha.name}
+            photoName={manqoosha.photoName}
+            ingredients={manqoosha.ingredients}
+            price={manqoosha.price}
+          />
+        ))}
+      </div>
     </main>
   );
 }
