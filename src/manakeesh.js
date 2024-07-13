@@ -48,3 +48,5 @@ const manakeeshData = [
     soldOut: false,
   },
 ];
+
+export default manakeeshData;

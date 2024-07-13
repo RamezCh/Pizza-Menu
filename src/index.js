@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import manakeeshData from './manakeesh.js';
 
 // Doesn't have to be called App, it just needs to start with an Uppercase letter
 function App() {
   // Never nest components inside a div, always use a fragment
   return (
-    <div>
+    <div className="container">
       <Header />
       <Menu />
       <Footer />
@@ -21,12 +22,14 @@ function App() {
 // Note: React can be used without JSX, but it's not recommended
 // Function name needs to start with an Uppercase letter
 // Function needs to return markup like JSX or null or html elements
-function Manqoosha() {
+function Manqoosha(props) {
+  // Order of passing props is irrelevant
   return (
     <div className="manqoosha">
-      <img src="images/Cheese Manakeesh.jpeg" alt="Cheese Manqoosha" />
-      <h3>Cheese Manqoosha</h3>
-      <p>Bread with olive oil topped with cheese</p>
+      <img src={props.photoName} alt={props.name} />
+      <h3>{props.name}</h3>
+      <p>{props.ingredients}</p>
+      <span>{props.price}</span>
     </div>
   );
 }
@@ -45,9 +48,6 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <Manqoosha />
-      <Manqoosha />
-      <Manqoosha />
       <Manqoosha />
     </main>
   );
