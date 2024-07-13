@@ -14,8 +14,8 @@ body {
   font-family: 'Roboto Mono', sans-serif;
   color: #252525;
   font-weight: 400;
-  background-color: #eaf7e9;
-  border-bottom: 1.6rem solid #1cc47e;
+  background-color: #f4f8f5;
+  border-bottom: 1.6rem solid #2b7a78;
   min-height: 100vh;
   padding: 3.2rem;
   padding-bottom: 6rem;
@@ -39,7 +39,7 @@ header {
 
 header h1 {
   /* Non-accessible color */
-  color: #1cc47e;
+  color: #2b7a78;
   /* color: #af8602; */
 
   text-transform: uppercase;
@@ -58,7 +58,7 @@ header h1::after {
   content: '';
   height: 3px;
   width: 12rem;
-  background-color: #1cc47e;
+  background-color: #2b7a78;
   position: absolute;
   top: calc(50% - 1px);
 }
@@ -149,10 +149,9 @@ header h1::after {
   opacity: 0.8;
 }
 
-/* *************** */
-
 footer {
   font-size: 1.4rem;
+  margin-top: auto;
 }
 
 .order {
@@ -163,25 +162,103 @@ footer {
 }
 
 .btn {
-  color: inherit;
+  color: #fff;
   font-family: inherit;
   border: none;
   font-size: 1.4rem;
   font-weight: 500;
-  background-color: #1cc47e;
+  background-color: #2b7a78;
   padding: 1.4rem 3.2rem;
   cursor: pointer;
-  transition: all 0.2s;
+  border-radius: 0.4rem;
+  transition: background-color 0.2s;
 }
 
 .btn:hover {
-  background-color: #24e966;
+  background-color: #3aafa9;
 }
 
-/*
-SPACING SYSTEM (px)
-2 / 4 / 8 / 12 / 16 / 24 / 32 / 40 / 48 / 64 / 80 / 96 / 128
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
 
-FONT SIZE SYSTEM (px)
-10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 /52 / 62 / 74 / 86 / 98
-*/
+  header h1 {
+    font-size: 4rem;
+  }
+
+  .menu h2 {
+    font-size: 2rem;
+  }
+
+  .menu > p {
+    font-size: 1.3rem;
+    width: 90%;
+  }
+
+  .manaqeesh {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4.8rem;
+  }
+
+  .manqoosha {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .manqoosha img {
+    width: 15rem;
+  }
+
+  .manqoosha h3 {
+    font-size: 1.8rem;
+  }
+
+  .manqoosha p {
+    font-size: 1.2rem;
+  }
+
+  .manqoosha span {
+    font-size: 1.4rem;
+  }
+
+  .btn {
+    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 45%;
+  }
+
+  header h1 {
+    font-size: 3.2rem;
+  }
+
+  .menu h2 {
+    font-size: 1.8rem;
+  }
+
+  .menu > p {
+    font-size: 1.2rem;
+  }
+
+  .manaqeesh {
+    gap: 3.2rem;
+  }
+
+  .manqoosha img {
+    width: 12rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+  }
+}

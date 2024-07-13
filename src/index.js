@@ -39,7 +39,7 @@ function Header() {
   // attribute: 'value'
   return (
     <header>
-      <h1>Yummy Triangles</h1>
+      <h1>Yummy Slices</h1>
     </header>
   );
 }
@@ -53,9 +53,10 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <div className="manqoosha-list">
+      <div className="manaqeesh">
         {manakeeshData.map(manqoosha => (
           <Manqoosha
+            key={manqoosha.name}
             className="manqoosha"
             name={manqoosha.name}
             photoName={manqoosha.photoName}
