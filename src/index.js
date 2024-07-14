@@ -24,14 +24,13 @@ function App() {
 // Function needs to return markup like JSX or null or html elements
 function Manqoosha({ manqoosha }) {
   // Order of passing props is irrelevant
-  const className = manqoosha.soldOut ? 'manqoosha sold-out' : 'manqoosha';
   return (
-    <div className={className}>
+    <div className={`manqoosha ${manqoosha.soldOut ? 'sold-out' : ''}`}>
       <img src={manqoosha.photoName} alt={manqoosha.name} />
       <div className="manqoosha-info">
         <h3>{manqoosha.name}</h3>
         <p>{manqoosha.ingredients}</p>
-        <span>${manqoosha.price}</span>
+        <span>{manqoosha.soldOut ? 'SOLD OUT' : `$${manqoosha.price}`}</span>
       </div>
     </div>
   );
