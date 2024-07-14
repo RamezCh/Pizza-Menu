@@ -27,9 +27,11 @@ function Manqoosha(props) {
   return (
     <div className="manqoosha">
       <img src={props.photoName} alt={props.name} />
-      <h3>{props.name}</h3>
-      <p>{props.ingredients}</p>
-      <span>{props.price}</span>
+      <div className="manqoosha-info">
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>${props.price}</span>
+      </div>
     </div>
   );
 }
@@ -53,18 +55,22 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <div className="manaqeesh">
-        {manakeeshData.map(manqoosha => (
-          <Manqoosha
-            key={manqoosha.name}
-            className="manqoosha"
-            name={manqoosha.name}
-            photoName={manqoosha.photoName}
-            ingredients={manqoosha.ingredients}
-            price={manqoosha.price}
-          />
-        ))}
-      </div>
+      {manakeeshData.length > 0 ? (
+        <div className="manaqeesh">
+          {manakeeshData.map(manqoosha => (
+            <Manqoosha
+              key={manqoosha.name}
+              className="manqoosha"
+              name={manqoosha.name}
+              photoName={manqoosha.photoName}
+              ingredients={manqoosha.ingredients}
+              price={manqoosha.price}
+            />
+          ))}
+        </div>
+      ) : (
+        <p>We're still working on our Menu. Please come back later.</p>
+      )}
     </main>
   );
 }
@@ -76,8 +82,16 @@ function Footer() {
   const isOpen = hour > openHour && hour < closeHour;
   return (
     <footer>
-      {new Date().toLocaleTimeString()}.
-      {isOpen ? `We're currently open` : `We're currently closed`}
+      {isOpen ? (
+        <div className="order">
+          <p>We're open until {closeHour}:00. Come visit us or order online.</p>
+          <button className="btn">Order</button>
+        </div>
+      ) : (
+        <p>
+          We're happy to welcome you between {openHour}:00 and {closeHour}:00.
+        </p>
+      )}
     </footer>
   );
 }
