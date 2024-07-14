@@ -22,16 +22,16 @@ function App() {
 // Note: React can be used without JSX, but it's not recommended
 // Function name needs to start with an Uppercase letter
 // Function needs to return markup like JSX or null or html elements
-function Manqoosha(props) {
+function Manqoosha({ manqoosha }) {
   // Order of passing props is irrelevant
-  const className = props.soldOut ? 'manqoosha sold-out' : 'manqoosha';
+  const className = manqoosha.soldOut ? 'manqoosha sold-out' : 'manqoosha';
   return (
     <div className={className}>
-      <img src={props.photoName} alt={props.name} />
+      <img src={manqoosha.photoName} alt={manqoosha.name} />
       <div className="manqoosha-info">
-        <h3>{props.name}</h3>
-        <p>{props.ingredients}</p>
-        <span>${props.price}</span>
+        <h3>{manqoosha.name}</h3>
+        <p>{manqoosha.ingredients}</p>
+        <span>${manqoosha.price}</span>
       </div>
     </div>
   );
@@ -62,11 +62,7 @@ function Menu() {
             <Manqoosha
               key={manqoosha.name}
               className="manqoosha"
-              name={manqoosha.name}
-              photoName={manqoosha.photoName}
-              ingredients={manqoosha.ingredients}
-              price={manqoosha.price}
-              soldOut={manqoosha.soldOut}
+              manqoosha={manqoosha}
             />
           ))}
         </div>
@@ -95,12 +91,10 @@ function Footer() {
   );
 }
 
-function Order(props) {
+function Order({ closeHour }) {
   return (
     <div className="order">
-      <p>
-        We're open until {props.closeHour}:00. Come visit us or order online.
-      </p>
+      <p>We're open until {closeHour}:00. Come visit us or order online.</p>
       <button className="btn">Order</button>
     </div>
   );
