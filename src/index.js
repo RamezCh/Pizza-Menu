@@ -57,15 +57,24 @@ function Menu() {
     <main className="menu">
       <h2>Our menu</h2>
       {manakeeshData.length > 0 ? (
-        <div className="manaqeesh">
-          {manakeeshData.map(manqoosha => (
-            <Manqoosha
-              key={manqoosha.name}
-              className="manqoosha"
-              manqoosha={manqoosha}
-            />
-          ))}
-        </div>
+        <>
+          {/* React Fragments are used to return multiple elements without creating any new html tag / parent container
+          You can also do <React.Fragment key=""></React.Fragment>
+          When you need a key */}
+          <p>
+            Delicious. Budget Friendly & Fresh out of the Oven. The number one
+            Bakery in the area.
+          </p>
+          <div className="manaqeesh">
+            {manakeeshData.map(manqoosha => (
+              <Manqoosha
+                key={manqoosha.name}
+                className="manqoosha"
+                manqoosha={manqoosha}
+              />
+            ))}
+          </div>
+        </>
       ) : (
         <p>We're still working on our Menu. Please come back later.</p>
       )}
