@@ -24,8 +24,9 @@ function App() {
 // Function needs to return markup like JSX or null or html elements
 function Manqoosha(props) {
   // Order of passing props is irrelevant
+  const className = props.soldOut ? 'manqoosha sold-out' : 'manqoosha';
   return (
-    <div className="manqoosha">
+    <div className={className}>
       <img src={props.photoName} alt={props.name} />
       <div className="manqoosha-info">
         <h3>{props.name}</h3>
@@ -65,6 +66,7 @@ function Menu() {
               photoName={manqoosha.photoName}
               ingredients={manqoosha.ingredients}
               price={manqoosha.price}
+              soldOut={manqoosha.soldOut}
             />
           ))}
         </div>
@@ -83,16 +85,24 @@ function Footer() {
   return (
     <footer>
       {isOpen ? (
-        <div className="order">
-          <p>We're open until {closeHour}:00. Come visit us or order online.</p>
-          <button className="btn">Order</button>
-        </div>
+        <Order closeHour={closeHour} />
       ) : (
         <p>
           We're happy to welcome you between {openHour}:00 and {closeHour}:00.
         </p>
       )}
     </footer>
+  );
+}
+
+function Order(props) {
+  return (
+    <div className="order">
+      <p>
+        We're open until {props.closeHour}:00. Come visit us or order online.
+      </p>
+      <button className="btn">Order</button>
+    </div>
   );
 }
 

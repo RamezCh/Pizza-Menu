@@ -37,7 +37,7 @@ const manakeeshData = [
       'Flatbread brushed with olive oil and topped with diced tomatoes, onions, and a mix of spices',
     price: 2,
     photoName: 'images/Tomato-and-Onion.jpg',
-    soldOut: true,
+    soldOut: false,
   },
   {
     name: 'Spinach Fatayr',
@@ -45,7 +45,7 @@ const manakeeshData = [
       'Pastry filled with a mixture of spinach, onions, sumac, olive oil, and a hint of lemon juice',
     price: 3,
     photoName: 'images/spinach fatayr.jpg',
-    soldOut: false,
+    soldOut: true,
   },
 ];
 
